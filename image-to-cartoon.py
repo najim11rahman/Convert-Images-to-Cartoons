@@ -13,9 +13,9 @@ from PIL import ImageTk, Image
 
 top=tk.Tk()
 top.geometry('400x400')
-top.title('Cartoonify Your Image !')
-top.configure(background='white')
-label=Label(top,background='#CDCDCD', font=('calibri',20,'bold'))
+top.title('Convert Images to Cartoons')
+top.configure(background='grey')
+label=Label(top,background='#CDCDCD', font=('Roboto',20,'bold'))
 
 def upload():
     ImagePath=easygui.fileopenbox()
@@ -78,7 +78,7 @@ def cartoonify(ImagePath):
         ax.imshow(images[i], cmap='gray')
 
     save1=Button(top,text="Save cartoon image",command=lambda: save(ReSized6, ImagePath),padx=30,pady=5)
-    save1.configure(background='#364156', foreground='white',font=('calibri',10,'bold'))
+    save1.configure(background='#364156', foreground='white',font=('Roboto',10,'bold'))
     save1.pack(side=TOP,pady=50)
     
     plt.show()
@@ -86,7 +86,7 @@ def cartoonify(ImagePath):
     
 def save(ReSized6, ImagePath):
     #saving an image using imwrite()
-    newName="cartoonified_Image"
+    newName="cartoon-image"
     path1 = os.path.dirname(ImagePath)
     extension=os.path.splitext(ImagePath)[1]
     path = os.path.join(path1, newName+extension)
@@ -94,7 +94,7 @@ def save(ReSized6, ImagePath):
     I= "Image saved by name " + newName +" at "+ path
     tk.messagebox.showinfo(title=None, message=I)
 
-upload=Button(top,text="Cartoonify an Image",command=upload,padx=10,pady=5)
+upload=Button(top,text="Create Cartooned Image",command=upload,padx=10,pady=5)
 upload.configure(background='#364156', foreground='white',font=('calibri',10,'bold'))
 upload.pack(side=TOP,pady=50)
 
